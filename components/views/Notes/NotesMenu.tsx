@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { FlatList, Keyboard, Pressable, RefreshControl, Text } from "react-native";
 // import { ActionSheet, View } from "react-native-ui-lib";
 import { styles } from "../../../assets/Style";
-// import { useAppDispatch, useAppSelector } from "../../handle/redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../handle/redux/hooks";
 // import { getNote } from "../../handle/redux/reducers/notes/noteEditor";
 import { deleteNote, getHeads, newNote, selectNoteByKey } from "../../handle/redux/reducers/notes/notesHeadsReducer";
 // import { NoteHead, NotesMsg } from "../../handle/types";
@@ -10,17 +10,18 @@ import Icon from "../../icons/Icon";
 // import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 // import { changePageOpened } from "../../handle/redux/reducers/settings/appSettings";
-import { useDrawerStatus } from "@react-navigation/drawer";
+// import { useDrawerStatus } from "@react-navigation/drawer";
 // import { NoteSortingTypes, updateNotesSorting } from "../../handle/redux/reducers/notes/notesMenuReducer";
 // import { getSortedNotes } from "../../handle/redux/selectors/selectorNoteHeads";
 import { View } from "react-native-windows";
+// import { useAppDispatch } from "../../handle/redux/hooks";
 
 const NotesMenu = ({  }) => {
   // const NotesMenu = ({navigation}) => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   // const userinfo = useAppSelector(state => state.userinfo);
   // const user = useAppSelector(state => state.userEnter);
-  // const noteHead = useAppSelector(state => state.noteHeads);
+  const noteHead = useAppSelector(state => state.noteHeads);
   // const navigation = useNavigation();
 
 
@@ -37,13 +38,13 @@ const NotesMenu = ({  }) => {
   //   getHeadsFromServer();
   // }, [user]);
 
-  const isDrawerOpen = useDrawerStatus();
+  // const isDrawerOpen = useDrawerStatus();
 
-  useEffect(()=>{
-    if(isDrawerOpen === "open" ){
-      Keyboard.dismiss();
-    }
-  },[isDrawerOpen]);
+  // useEffect(()=>{
+  //   if(isDrawerOpen === "open" ){
+  //     Keyboard.dismiss();
+  //   }
+  // },[isDrawerOpen]);
 
   const onRefresh = ()=>{
     getHeadsFromServer();
