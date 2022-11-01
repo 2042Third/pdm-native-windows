@@ -8,27 +8,27 @@ import NoteEditorReducer from "./reducers/notes/noteEditor";
 import NotesMenuReducer from "./reducers/notes/notesMenuReducer";
 import UserinfoEnterReducer from './reducers/user/userinfoEnter';
 import AppSettingsReducer from './reducers/settings/appSettings';
-import storage from 'redux-persist/lib/storage'
+// import storage from 'redux-persist/lib/storage'
 // import { persistStore, persistReducer } from 'redux-persist'
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist'
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import {
+//   persistStore,
+//   persistReducer,
+//   FLUSH,
+//   REHYDRATE,
+//   PAUSE,
+//   PERSIST,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist'
 import EncryptedUserinfoEnterReducer from './reducers/user/encryptedUserEnter';
 import NotesHeaderInfoReducer from "./reducers/notes/notesHeaderInfo";
-const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-  // blacklist: ['userinfo', 'userEnter', "noteHeads", 'noteEditor'],
-  whitelist: ['encryptedUserEnter', "chat", 'appSettings'],
-};
+// const persistConfig = {
+//   key: 'root',
+//   storage: AsyncStorage,
+//   // blacklist: ['userinfo', 'userEnter', "noteHeads", 'noteEditor'],
+//   whitelist: ['encryptedUserEnter', "chat", 'appSettings'],
+// };
 
 export const rootReducer = combineReducers({
   chat: ChatInputViewReducer,
@@ -44,17 +44,18 @@ export const rootReducer = combineReducers({
 });
 
 // Persistor
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  // reducer: persistedReducer, // original
+  reducer: rootReducer,
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: {
+  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  //     },
+  //   }),
 });
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
