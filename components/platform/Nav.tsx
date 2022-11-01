@@ -119,7 +119,8 @@ const Nav = (props: {Drawer: any, Tab: any}) => {
             swipeEdgeWidth: window.width,
             drawerPosition: "left",
           }}
-          initialRouteName="Notes"
+          // initialRouteName="Notes" //Original
+          initialRouteName="Chat"
           // useLegacyImplementation
           // drawerContent={
           //   (props: JSX.IntrinsicAttributes & { [x: string]: any; }) =>

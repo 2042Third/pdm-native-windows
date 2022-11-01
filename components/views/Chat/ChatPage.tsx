@@ -14,11 +14,12 @@ import ChatBox from './ChatBox';
 // const ChatBox = lazy(()=> import('./ChatBox'));
 import { PdmActions } from "../../handle/redux/reducers/actionType";
 import { inputEnter } from "../../handle/redux/reducers/chat/chatViewReducer";
-import { FlatList } from "react-native-gesture-handler";
+// import { FlatList } from "react-native-gesture-handler";
 import { useAppDispatch } from "../../handle/redux/hooks";
 import { useFocusEffect } from "@react-navigation/native";
 import { recordPageChange } from "../../handle/handlers/records";
 import { changePageOpened } from "../../handle/redux/reducers/settings/appSettings";
+import { FlatList } from "react-native-windows";
 
 export default function ChatView({}) {
   const [chatInputValue, onChangeChatInput] = React.useState('');
@@ -135,7 +136,7 @@ export default function ChatView({}) {
                         },
                         styles.styledButton1,
                       ]}
-                onPress={handlePress}
+                // onPress={handlePress} // original
               >
                 <Text
                   style={[
