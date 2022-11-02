@@ -8,7 +8,7 @@
 
 #include "NativeModules.h"
 
-namespace NativeModuleSample
+namespace pdmWindows
 {
     REACT_MODULE(FancyMath);
     struct FancyMath

@@ -5,6 +5,8 @@
 #include "AutolinkedNativeModules.g.h"
 #include "ReactPackageProvider.h"
 
+#include "winrt/ReactNativeNativeUi.h"
+
 using namespace winrt;
 using namespace xaml;
 using namespace xaml::Controls;
@@ -39,7 +41,7 @@ App::App() noexcept
     RegisterAutolinkedNativeModulePackages(PackageProviders()); // Includes any autolinked modules
 
     PackageProviders().Append(make<ReactPackageProvider>()); // Includes all modules in this project
-
+    PackageProviders().Append(winrt::ReactNativeNativeUi::ReactPackageProvider());
     InitializeComponent();
 }
 

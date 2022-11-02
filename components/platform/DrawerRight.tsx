@@ -1,36 +1,49 @@
 // import { createDrawerNavigator, DrawerToggleButton } from "@react-navigation/drawer";
 import React, { useEffect } from "react";
-import { Alert, Button, SafeAreaView, Text, useWindowDimensions, View } from "react-native-windows";
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  requireNativeComponent,
+  Text,
+  useWindowDimensions,
+  View, findNodeHandle, UIManager,
+} from "react-native-windows";
+import {StyleSheet} from 'react-native';
 import { colors, styles } from "../../assets/Style";
-// import NotesView from "../views/Notes/NotesPage";
-// import CustomDrawerContentRight from "./drawerContent/DrawerContentRight";
-// import NotesHeader from "./drawerContent/notes/NotesHeader";
-import { useAppSelector } from "../handle/redux/hooks";
-import CustomDrawerContentRight from "./drawerContent/DrawerContentRight";
-import NotesView from "../views/Notes/NotesPage";
-import NotesHeader from "./drawerContent/notes/NotesHeader";
-import { NotesHeaderInfo } from "../handle/types";
-// const DrawerRightMenu = createDrawerNavigator();
+import { NativeModules, NativeEventEmitter, EmitterSubscription } from "react-native";
 
-import { NativeModules, NativeEventEmitter } from 'react-native';
 const FancyMathEventEmitter = new NativeEventEmitter(NativeModules.FancyMath);
+let CustomUserControl = requireNativeComponent('CustomUserControl');
 
 const DrawerRight = () => {
   const window = useWindowDimensions();
-  // const header = useAppSelector(state => state.notesHeaderInfo);
+  let _customControlRef;
 
+  // const header = useAppSelector(state => state.notesHeaderInfo);
   useEffect(()=>{
     // Subscribing to FancyMath.AddEvent
-    FancyMathEventEmitter.addListener('AddEvent', eventHandler, this);
+    const windowsListener = FancyMathEventEmitter.addListener('AddEvent', eventHandler, this);
     return ()=>{
+      console.log("Unsub from windows native.");
       // Unsubscribing from FancyMath.AddEvent
-      FancyMathEventEmitter.removeListener('AddEvent', eventHandler, this);
+      windowsListener.remove();
     }
   },[]);
 
   function eventHandler(result) {
     console.log("Event was fired with: " + result);
   }
+
+  function _onPress() {
+    if (_customControlRef) {
+      const tag = findNodeHandle(_customControlRef);
+      UIManager.dispatchViewManagerCommand(tag,
+        UIManager.getViewManagerConfig('CustomUserControl').Commands.CustomCommand,
+        ['arg1', 'arg2']);
+    }
+  }
+
   const _onPressHandler=()=> {
     // Calling FancyMath.add method
     NativeModules.FancyMath.add(
@@ -50,48 +63,37 @@ const DrawerRight = () => {
       <Text>
         Drawer (that tests windows native modules):
       </Text>
-
+      <View style={windowsStyles.container}>
+        <CustomUserControl style={[windowsStyles.customcontrol]}
+                           label="CustomUserControl!"
+                           ref={(ref) => { _customControlRef = ref; }} />
+      </View>
       <Text style={[styles.normalText]}>FancyMath says PI = {NativeModules.FancyMath.Pi}</Text>
       <Text style={[styles.normalText]}>FancyMath says E = {NativeModules.FancyMath.E}</Text>
-      <Button  onPress={_onPressHandler} title={"Test Windows Native"}/>
+
+      {/*Controls*/}
+      <View style={[{flexDirection: "row"}]}>
+        <Button  onPress={_onPressHandler} title={"Test Windows Native"}/>
+        <Button  onPress={()=>{_onPress();}} title={"Windows Custom Control"}/>
+      </View>
     </View>);
-  //   <DrawerRightMenu.Navigator
-  //     screenOptions={{
-  //       drawerStyle: [styles.drawerStyle, { width: window.width }],
-  //       drawerContentStyle: styles.drawerContentStyle,
-  //       drawerItemStyle: styles.drawerItemStyle,
-  //       drawerInactiveTintColor: colors['--foreground-default'],
-  //       drawerType: window.width >= 768 ? 'permanent' : 'slide',
-  //       headerShown: true,
-  //       drawerPosition: "right",
-  //       swipeMinDistance: window.width / 7,
-  //       // defaultStatus: window.width >= 768 ? 'open' : 'closed',
-  //       swipeEdgeWidth: window.width,
-  //     }}
-  //     initialRouteName="NotesEdit"
-  //     drawerContent={
-  //       (props: JSX.IntrinsicAttributes & { [x: string]: any; }) =>
-  //         <CustomDrawerContentRight {...props} />}
-  //   >
-  //     < DrawerRightMenu.Screen
-  //       name="NotesEdit"
-  //       component={NotesView}
-  //       options={(route)=>({
-  //         params:{title:""},
-  //         lazy: true,
-  //         headerStyle: styles.drawerHeaderStyle,
-  //         headerTitleStyle: styles.drawerHeaderTitleStyle,
-  //         // headerTitle: () => < NotesHeader header={header} />, // original
-  //         headerTitle: () => < NotesHeader header={new NotesHeaderInfo()} />,
-  //         drawerItemStyle: { display: 'none' },
-  //         keyboardDismissMode: "none",
-  //         headerLeft: () => null,
-  //         headerRight: () => <DrawerToggleButton tintColor={colors['--foreground-default']}/>,
-  //
-  //       })}/>
-  //   </DrawerRightMenu.Navigator>
-  //
-  // );
 }
+
+const windowsStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  customcontrol: {
+    color: '#333333',
+    backgroundColor: '#006666',
+    width: 200,
+    height: 20,
+    margin: 10,
+  },
+});
+
 
 export default DrawerRight;
