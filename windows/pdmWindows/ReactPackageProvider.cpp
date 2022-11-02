@@ -6,6 +6,7 @@ using namespace winrt::Microsoft::ReactNative;
 
 #include "PDMWindows.h"
 
+#include "winrt/ReactNativeNativeUi.h"
 namespace winrt::pdmWindows::implementation
 {
 

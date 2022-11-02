@@ -22,3 +22,7 @@ struct CustomUserControl : CustomUserControlT<CustomUserControl> {
 namespace winrt::ReactNativeNativeUi::factory_implementation {
 struct CustomUserControl : CustomUserControlT<CustomUserControl, implementation::CustomUserControl> {};
 } // namespace winrt::ReactNativeNativeUi::factory_implementation
+
+class CustomUserControl
+{
+};

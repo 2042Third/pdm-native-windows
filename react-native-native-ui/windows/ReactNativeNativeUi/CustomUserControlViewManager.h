@@ -53,3 +53,7 @@ private:
 };
 
 }
+
+class CustomUserControlViewManager
+{
+};
