@@ -14,7 +14,7 @@ using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Controls;
 
-namespace winrt::pdmWindows::implementation {
+namespace winrt::ReactNativeNativeUi::implementation {
 
 // IViewManager
 hstring CustomUserControlViewManager::Name() noexcept {
@@ -22,7 +22,7 @@ hstring CustomUserControlViewManager::Name() noexcept {
 }
 
 FrameworkElement CustomUserControlViewManager::CreateView() noexcept {
-  return winrt::pdmWindows::CustomUserControl();
+  return winrt::ReactNativeNativeUi::CustomUserControl();
 }
 
 // IViewManagerWithNativeProperties
@@ -39,7 +39,7 @@ IMapView<hstring, ViewManagerPropertyType> CustomUserControlViewManager::NativeP
 void CustomUserControlViewManager::UpdateProperties(
     FrameworkElement const &view,
     IJSValueReader const &propertyMapReader) noexcept {
-  if (auto control = view.try_as<winrt::pdmWindows::CustomUserControl>()) {
+  if (auto control = view.try_as<winrt::ReactNativeNativeUi::CustomUserControl>()) {
 
     const JSValueObject &propertyMap = JSValue::ReadObjectFrom(propertyMapReader);
 
@@ -52,7 +52,7 @@ void CustomUserControlViewManager::UpdateProperties(
           auto const &value = winrt::box_value(winrt::to_hstring(propertyValue.String()));
           control.Label(value);
         } else {
-          control.ClearValue(winrt::pdmWindows::CustomUserControl::LabelProperty());
+          control.ClearValue(winrt::ReactNativeNativeUi::CustomUserControl::LabelProperty());
         }
       } else if (propertyName == "color") {
         if (auto value = propertyValue.To<Brush>()) {
@@ -82,7 +82,7 @@ void CustomUserControlViewManager::DispatchCommand(
     FrameworkElement const &view,
     winrt::hstring const &commandId,
     winrt::Microsoft::ReactNative::IJSValueReader const &commandArgsReader) noexcept {
-  if (auto control = view.try_as<winrt::pdmWindows::CustomUserControl>()) {
+  if (auto control = view.try_as<winrt::ReactNativeNativeUi::CustomUserControl>()) {
     if (commandId == L"CustomCommand") {
       const JSValueArray &commandArgs = JSValue::ReadArrayFrom(commandArgsReader);
       // Execute command

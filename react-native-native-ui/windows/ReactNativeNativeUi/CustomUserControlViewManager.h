@@ -4,7 +4,7 @@
 
 #include "winrt/Microsoft.ReactNative.h"
 
-namespace winrt::pdmWindows::implementation {
+namespace winrt::ReactNativeNativeUi::implementation {
 
 struct CustomUserControlViewManager : winrt::implements<
                                              CustomUserControlViewManager,

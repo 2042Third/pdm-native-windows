@@ -15,6 +15,7 @@ namespace winrt::ReactNativeNativeUi::implementation
 void ReactPackageProvider::CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept
 {
     AddAttributedModules(packageBuilder);
+    packageBuilder.AddViewManager(L"CustomUserControlViewManager", []() { return winrt::make<winrt::ReactNativeNativeUi::implementation::CustomUserControlViewManager>(); });
 }
 
 } // namespace winrt::ReactNativeNativeUi::implementation
