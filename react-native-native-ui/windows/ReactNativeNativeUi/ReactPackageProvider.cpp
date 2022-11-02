@@ -6,6 +6,7 @@
 
 #include "ReactNativeModule.h"
 
+#include "CustomUserControlViewManager.h"
 using namespace winrt::Microsoft::ReactNative;
 
 namespace winrt::ReactNativeNativeUi::implementation
