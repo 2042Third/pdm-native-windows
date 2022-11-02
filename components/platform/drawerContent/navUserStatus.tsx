@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import { styles } from "../../../assets/Style";
 import { UserInfoGeneral } from "../../handle/types";
 import { useAppSelector } from "../../handle/redux/hooks";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-windows";
 
 export const NavUserStatus = ( { ...props }: any) => {
   const navigation = useNavigation();
@@ -24,9 +24,9 @@ export const NavUserStatus = ( { ...props }: any) => {
     <TouchableOpacity style={styles.mainSigninStatus}
       onPress={navToUser}
     >
-      <Icon 
+      <Icon
         onPress={() => { navigation.navigate('User'); }}
-        name={'account'} size={24} 
+        name={'account'} size={24}
         color={currentUser.status === 'success' ? "green" : "red"} />
       <Text style={styles.mainSigninStatusText} >{currentUser.username}</Text>
     </TouchableOpacity>

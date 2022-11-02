@@ -2,7 +2,6 @@ import { ActivityIndicator, View } from "react-native";
 // import { View, TextInput} from 'react-native';
 import {styles, colors} from '../../../assets/Style';
 import React, { useEffect, Suspense, useState } from "react";
-import { TextInput } from 'react-native-gesture-handler';
 import { useAppDispatch, useAppSelector } from '../../handle/redux/hooks';
 import { updateEditsContent, updateEditsHead, updateNote } from '../../handle/redux/reducers/notes/noteEditor';
 import { NotesMsg } from '../../handle/types';
@@ -10,6 +9,7 @@ import { formatDistanceToNowStrict } from "date-fns";
 import { updateNotesHeaderInfo, updateNotesTimeDistance } from "../../handle/redux/reducers/notes/notesHeaderInfo";
 import { useNavigation } from "@react-navigation/native";
 import { userInfoStatus } from "../../handle/redux/selectors/selectorNoteHeads";
+import { TextInput } from "react-native-windows";
 
 enum updateStatus{
   AllUpdated = "Up to date",

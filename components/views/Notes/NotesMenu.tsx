@@ -8,7 +8,7 @@ import { deleteNote, getHeads, newNote, selectNoteByKey } from "../../handle/red
 // import { NoteHead, NotesMsg } from "../../handle/types";
 import Icon from "../../icons/Icon";
 // import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-windows";
 // import { changePageOpened } from "../../handle/redux/reducers/settings/appSettings";
 // import { useDrawerStatus } from "@react-navigation/drawer";
 // import { NoteSortingTypes, updateNotesSorting } from "../../handle/redux/reducers/notes/notesMenuReducer";

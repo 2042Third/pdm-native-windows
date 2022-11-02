@@ -6,6 +6,7 @@ import DrawerRight from "./DrawerRight";
 import Icon from "../icons/Icon";
 import ChatView from "../views/Chat/ChatPage";
 import { NavigationContainer } from "@react-navigation/native";
+import NotesPage from "../views/Notes/NotesPage";
 
 const Nav = (props: {Drawer: any, Tab: any}) => {
   const window = useWindowDimensions();
@@ -119,8 +120,8 @@ const Nav = (props: {Drawer: any, Tab: any}) => {
             swipeEdgeWidth: window.width,
             drawerPosition: "left",
           }}
-          // initialRouteName="Notes" //Original
-          initialRouteName="Chat"
+          initialRouteName="Notes" //Original
+          // initialRouteName="Chat" //Original//Original
           // useLegacyImplementation
           // drawerContent={
           //   (props: JSX.IntrinsicAttributes & { [x: string]: any; }) =>
@@ -130,7 +131,8 @@ const Nav = (props: {Drawer: any, Tab: any}) => {
           {/*Notes*/}
           < Tab.Screen
             name="Notes"
-            component={DrawerRight}
+            component={DrawerRight}//Original
+            // component={NotesPage}//Original
             options={{
               keyboardDismissMode: "none",
               tabBarLabel: ()=>null,

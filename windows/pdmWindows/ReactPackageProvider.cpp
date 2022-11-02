@@ -3,6 +3,8 @@
 #include "NativeModules.h"
 
 using namespace winrt::Microsoft::ReactNative;
+#include "PDMWindows.h"
+
 
 namespace winrt::pdmWindows::implementation
 {
