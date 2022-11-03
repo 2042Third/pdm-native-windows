@@ -7,17 +7,14 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="ReactPackageProvider.cpp" />
-    <ClCompile Include="CustomUserControlViewManager.cpp" />
-    <ClCompile Include="CustomUserControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="ReactPackageProvider.h" />
     <ClInclude Include="ReactNativeModule.h" />
-    <ClInclude Include="CustomUserControlViewManager.h" />
-    <ClInclude Include="CustomUserControl.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

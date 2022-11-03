@@ -1,0 +1,8 @@
+namespace ReactNativeNativeUi
+{
+    [default_interface]
+    runtimeclass NativeUserControl : Windows.UI.Xaml.Controls.UserControl
+    {
+        NativeUserControl();
+    }
+}

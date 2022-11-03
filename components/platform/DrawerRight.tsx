@@ -14,7 +14,7 @@ import { colors, styles } from "../../assets/Style";
 import { NativeModules, NativeEventEmitter, EmitterSubscription } from "react-native";
 
 const FancyMathEventEmitter = new NativeEventEmitter(NativeModules.FancyMath);
-let CustomUserControl = requireNativeComponent('CustomUserControl');
+let CustomUserControl = requireNativeComponent('NativeUserControl');
 
 const DrawerRight = () => {
   const window = useWindowDimensions();

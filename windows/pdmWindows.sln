@@ -33,8 +33,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mso", "..\node_modules\reac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Include", "..\node_modules\react-native-windows\include\Include.vcxitems", "{EF074BA1-2D54-4D49-A28E-5E040B47CD2E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReactNativeNativeUi", "..\react-native-native-ui\windows\ReactNativeNativeUi\ReactNativeNativeUi.vcxproj", "{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -125,20 +123,6 @@ Global
 		{FCA38F3C-7C73-4C47-BE4E-32F77FA8538D}.Release|x64.Build.0 = Release|x64
 		{FCA38F3C-7C73-4C47-BE4E-32F77FA8538D}.Release|x86.ActiveCfg = Release|Win32
 		{FCA38F3C-7C73-4C47-BE4E-32F77FA8538D}.Release|x86.Build.0 = Release|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|ARM64.Build.0 = Debug|ARM64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|x64.ActiveCfg = Debug|x64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|x64.Build.0 = Debug|x64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|x86.ActiveCfg = Debug|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|x86.Build.0 = Debug|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Debug|x86.Deploy.0 = Debug|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|ARM64.ActiveCfg = Release|ARM64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|ARM64.Build.0 = Release|ARM64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|x64.ActiveCfg = Release|x64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|x64.Build.0 = Release|x64
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|x86.ActiveCfg = Release|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|x86.Build.0 = Release|Win32
-		{BCFBAF19-17B1-4DBB-B461-430B91F9FD52}.Release|x86.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

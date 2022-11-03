@@ -161,11 +161,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.CppWinRT" Version="2.0.211028.7" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\react-native-native-ui\windows\ReactNativeNativeUi\ReactNativeNativeUi.vcxproj">
-      <Project>{bcfbaf19-17b1-4dbb-b461-430b91f9fd52}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ReactNativeWindowsTargets">
     <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppApp.targets" Condition="Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppApp.targets')" />

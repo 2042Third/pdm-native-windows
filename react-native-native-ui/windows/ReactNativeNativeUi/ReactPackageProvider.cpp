@@ -6,7 +6,7 @@
 
 #include "ReactNativeModule.h"
 
-#include "CustomUserControlViewManager.h"
+
 using namespace winrt::Microsoft::ReactNative;
 
 namespace winrt::ReactNativeNativeUi::implementation
@@ -15,7 +15,6 @@ namespace winrt::ReactNativeNativeUi::implementation
 void ReactPackageProvider::CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept
 {
     AddAttributedModules(packageBuilder);
-    packageBuilder.AddViewManager(L"CustomUserControlViewManager", []() { return winrt::make<CustomUserControlViewManager>(); });
 
 }    
 
