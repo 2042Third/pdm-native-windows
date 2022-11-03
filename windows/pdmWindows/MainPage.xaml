@@ -8,9 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <react:ReactRootView 
-        x:Name="ReactRootView"
-        ComponentName="pdmWindows"
-        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-        MinHeight="400"/>
+    <Grid>
+        <NavigationView PaneDisplayMode="Top">
+            <NavigationView.MenuItems>
+                <react:ReactRootView 
+                    x:Name="ReactRootView"
+                    ComponentName="pdmWindows"
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                    MinHeight="400"/>
+            </NavigationView.MenuItems>
+        </NavigationView>
+    </Grid>
+
 </Page>

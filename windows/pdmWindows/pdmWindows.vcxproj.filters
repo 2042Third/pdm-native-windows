@@ -52,11 +52,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />
+    <Page Include="views\PdmSettings.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\AntDesign.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Entypo.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\EvilIcons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Feather.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\FontAwesome.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\FontAwesome5_Brands.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\FontAwesome5_Regular.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\FontAwesome5_Solid.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Fontisto.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Foundation.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Ionicons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\MaterialCommunityIcons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\MaterialIcons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Octicons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\SimpleLineIcons.ttf">
+      <Filter>Assets</Filter>
+    </Font>
+    <Font Include="..\..\node_modules\react-native-vector-icons\Fonts\Zocial.ttf">
+      <Filter>Assets</Filter>
+    </Font>
   </ItemGroup>
 </Project>

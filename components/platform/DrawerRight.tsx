@@ -14,7 +14,7 @@ import { colors, styles } from "../../assets/Style";
 import { NativeModules, NativeEventEmitter, EmitterSubscription } from "react-native";
 
 const FancyMathEventEmitter = new NativeEventEmitter(NativeModules.FancyMath);
-let CustomUserControl = requireNativeComponent('NativeUserControl');
+// let CustomUserControl = requireNativeComponent('NativeUserControl');
 
 const DrawerRight = () => {
   const window = useWindowDimensions();
@@ -35,14 +35,14 @@ const DrawerRight = () => {
     console.log("Event was fired with: " + result);
   }
 
-  function _onPress() {
-    if (_customControlRef) {
-      const tag = findNodeHandle(_customControlRef);
-      UIManager.dispatchViewManagerCommand(tag,
-        UIManager.getViewManagerConfig('CustomUserControl').Commands.CustomCommand,
-        ['arg1', 'arg2']);
-    }
-  }
+  // function _onPress() {
+  //   if (_customControlRef) {
+  //     const tag = findNodeHandle(_customControlRef);
+  //     UIManager.dispatchViewManagerCommand(tag,
+  //       UIManager.getViewManagerConfig('CustomUserControl').Commands.CustomCommand,
+  //       ['arg1', 'arg2']);
+  //   }
+  // }
 
   const _onPressHandler=()=> {
     // Calling FancyMath.add method
@@ -63,18 +63,18 @@ const DrawerRight = () => {
       <Text>
         Drawer (that tests windows native modules):
       </Text>
-      <View style={windowsStyles.container}>
-        <CustomUserControl style={[windowsStyles.customcontrol]}
-                           label="CustomUserControl!"
-                           ref={(ref) => { _customControlRef = ref; }} />
-      </View>
+      {/*<View style={windowsStyles.container}>*/}
+      {/*  <CustomUserControl style={[windowsStyles.customcontrol]}*/}
+      {/*                     label="CustomUserControl!"*/}
+      {/*                     ref={(ref) => { _customControlRef = ref; }} />*/}
+      {/*</View>*/}
       <Text style={[styles.normalText]}>FancyMath says PI = {NativeModules.FancyMath.Pi}</Text>
       <Text style={[styles.normalText]}>FancyMath says E = {NativeModules.FancyMath.E}</Text>
 
       {/*Controls*/}
       <View style={[{flexDirection: "row"}]}>
         <Button  onPress={_onPressHandler} title={"Test Windows Native"}/>
-        <Button  onPress={()=>{_onPress();}} title={"Windows Custom Control"}/>
+        {/*<Button  onPress={()=>{_onPress();}} title={"Windows Custom Control"}/>*/}
       </View>
     </View>);
 }
